@@ -37,28 +37,27 @@
         </div>
       </div>
 
-      <div class="flex items-center justify-end">
-        <div class="text-sm">
-          <%= render "devise/shared/links" %>
+      <%= f.submit "Atualizar", class: "group relative flex w-full justify-center rounded-md border border-transparent bg-violet-600 py-2 px-4 text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2" %>
+      <%= link_to :back, class: "hover: text-black-400 font-semibold hover:text-violet-600" do %>
+        <div class="flex justify-end mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mt-1">
+            <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+          </svg>
+
+          <span> Voltar </span>
         </div>
-      </div>
-
-      <div>
-        <%= f.submit "Atualizar", class: "group relative flex w-full justify-center rounded-md border border-transparent bg-violet-600 py-2 px-4 text-sm font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2" %>
-
-        <p class="text-xs text-end pt-2">Triste com a gente? <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza? =/" }, class: "bg-transparent hover:bg-red-500 text-red-400 font-semibold hover:text-white py-0 px-1 hover:border-transparent rounded", method: :delete %></p>
-
-        <%= link_to :back, class: "hover: text-black-400 font-semibold hover:text-violet-600" do %>
-          <div class="flex justify-end mt-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mt-1">
-              <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
-            </svg>
-
-            <span> Voltar </span>
-          </div>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
+
+    <div class="flex min-h-full items-center justify-center mx-auto">
+      <p class="text-xs pt-2">Triste com a gente?</p>
+        <div class="pt-1.5">
+          <%= button_to "Cancelar minha conta", registration_path(resource_name),
+                        form: { data: { turbo_confirm: "Tem certeza? =/" } },
+                        class: "text-xs bg-transparent hover:bg-red-500 text-red-400 font-semibold hover:text-white py-1 px-2 hover:border-transparent rounded",
+                        method: :delete %>
+        </div>
+    </div>
   </div>
 </div>
 
