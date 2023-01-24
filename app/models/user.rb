@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum gender: { male: "male", female: "female", not_defined: "not_defined" }
+
+  has_many :announcements
   has_one_attached :avatar
 end
