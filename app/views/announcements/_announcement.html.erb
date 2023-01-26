@@ -5,11 +5,6 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Code:</strong>
-    <%= announcement.code %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>
     <%= announcement.description %>
   </p>
@@ -20,16 +15,11 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= announcement.user_id %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Category:</strong>
-    <%= announcement.category_id %>
+    <%= announcement.category.name %>
   </p>
 
-  <% if action_name != "show" %>
+  <% if action_name != "show" && user_signed_in? %>
     <%= link_to "Show this announcement", announcement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this announcement', edit_announcement_path(announcement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">

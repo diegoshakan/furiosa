@@ -1,9 +1,8 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate_user!, only: %i[ index ]
-
+  # skip_before_action :authenticate_user!
   def index
-    @announcements = Announcement.all
+    @announcements = current_user.announcements
   end
 
   def show
@@ -18,6 +17,7 @@ class AnnouncementsController < ApplicationController
 
   def create
     @announcement = Announcement.new(announcement_params)
+    @announcement.user = current_user
 
     respond_to do |format|
       if @announcement.save
@@ -53,7 +53,14 @@ class AnnouncementsController < ApplicationController
 
   private
     def set_announcement
-      @announcement = Announcement.find(params[:id])
+      begin
+        @announcement = Announcement.where(user: current_user).find(params[:id])
+      rescue StandardError => e
+        respond_to do |format|
+          format.html { redirect_to announcements_url, notice: "Você não possui este anúncio." }
+          format.json { head :no_content }
+        end
+      end
     end
 
     def announcement_params
