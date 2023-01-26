@@ -2,7 +2,12 @@
   <h1 class="font-bold text-4xl">Hello World, I'm Furiosa!</h1>
   <p>Where am I? </p>
 
-  <%= link_to "Editar User =D", edit_user_registration_path %>
+  <%= link_to "Editar User", edit_user_registration_path %> <br/>
+  <%= link_to "Criar Anúncio", new_announcement_path %>
 
   <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" %>
+
+  <div id="announcements" class="min-w-full">
+    <%= render @announcements %>
+  </div>
 </div>
