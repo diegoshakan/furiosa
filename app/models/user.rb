@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   enum gender: { male: "male", female: "female", not_defined: "not_defined" }
 
-  has_many :announcements
-  has_one_attached :avatar
+  has_many :announcements, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
 end
