@@ -21,9 +21,9 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Category:</strong>
-    <% announcement.images.each do |image| %>
+    <% announcement.images_as_thumbnail.each do |image| %>
       <span>
-        <%= image_tag(image, style: "width:200px; height:150px;") %>
+        <%= image_tag(image) %>
       </span>
     <% end %>
   </p>

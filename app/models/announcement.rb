@@ -6,6 +6,10 @@ class Announcement < ApplicationRecord
 
   has_many_attached :images, dependent: :destroy
 
+  def images_as_thumbnail
+    ::Announcements::ImagesAsThumbnails.new({ announcement: self }).execute
+  end
+
   private
 
   def add_code
