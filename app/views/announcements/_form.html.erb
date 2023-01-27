@@ -36,11 +36,13 @@
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <%= form.label :category, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
-      <%= form.select :category_id, options_for_select(Category.all.pluck(:name, :id)), include_blank: true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+      <%= form.select :category_id, options_for_select(Category.all.pluck(:name, :id)), include_blank: true,
+                     class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
     </div>
 
-    <div class="inline">
-
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :images, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.file_field :images, multiple: true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
     </div>
 
     <div class="md:flex md:items-center">

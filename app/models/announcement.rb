@@ -4,7 +4,7 @@ class Announcement < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
 
   private
 

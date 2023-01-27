@@ -64,6 +64,6 @@ class AnnouncementsController < ApplicationController
     end
 
     def announcement_params
-      params.require(:announcement).permit(:title, :code, :description, :value, :user_id, :category_id)
+      params.require(:announcement).permit(:title, :code, :description, :value, :user_id, :category_id, images: [])
     end
 end
