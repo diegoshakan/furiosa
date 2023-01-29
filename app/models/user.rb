@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :announcements, dependent: :destroy
   has_one_attached :avatar, dependent: :destroy
+
+  validates :first_name, :last_name, :nickname, presence: true
 end

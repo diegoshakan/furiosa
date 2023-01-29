@@ -13,6 +13,35 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm", placeholder: "Email" %>
         </div>
 
+        <div>
+          <%= f.label "Primeiro Nome", class: "sr-only" %>
+          <%= f.text_field :first_name, class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet
+            -500 focus:outline-none focus:ring-violet-500 sm:text-sm", placeholder: "Primeiro Nome" %>
+        </div>
+
+        <div>
+          <%= f.label "Último Nome", class: "sr-only" %>
+          <%= f.text_field :last_name, class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet
+            -500 focus:outline-none focus:ring-violet-500 sm:text-sm", placeholder: "Último Nome" %>
+        </div>
+
+        <div>
+          <%= f.label "Apelido", class: "sr-only" %>
+          <%= f.text_field :nickname, class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet
+            -500 focus:outline-none focus:ring-violet-500 sm:text-sm", placeholder: "Apelido" %>
+        </div>
+
+        <div>
+          <%= f.label "Telefone", class: "sr-only" %>
+          <%= f.telephone_field :phone, class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet
+            -500 focus:outline-none focus:ring-violet-500 sm:text-sm", placeholder: "(84)999991111" %>
+        </div>
+
+        <div>
+          <%= f.label "Gênero", class: "sr-only" %>
+          <%= f.select :gender, options_for_select(User.genders.map {|key, value| [key.titleize, User.genders.key(value)]}, @user.gender), class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm", prompt: "Gênero" %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Esperando confirmação para o email: <%= resource.unconfirmed_email %></div>
         <% end %>
