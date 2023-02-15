@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @announcements = Announcement.all
+    @announcements = Announcement.all_announcements
   end
 end
