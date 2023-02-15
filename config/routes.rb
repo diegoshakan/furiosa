@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :announcements
-  devise_for :users
   root "home#index"
+  devise_for :users
+
+  resources :announcements
+
+  get 'profile', to: "profile#show"
 end
