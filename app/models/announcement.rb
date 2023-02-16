@@ -6,6 +6,8 @@ class Announcement < ApplicationRecord
 
   has_many_attached :images, dependent: :destroy
 
+  scope :all_announcements, -> { includes([:category, { images_attachments: :blob }]) }
+
   def images_as_thumbnail
     ::Announcements::ImagesAsThumbnails.new({ announcement: self }).execute
   end

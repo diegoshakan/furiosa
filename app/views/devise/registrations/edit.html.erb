@@ -42,6 +42,17 @@
           <%= f.select :gender, options_for_select(User.genders.map {|key, value| [key.titleize, User.genders.key(value)]}, @user.gender), class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm", prompt: "Gênero" %>
         </div>
 
+        <div>
+          <%= f.label :avatar, class: "sr-only" %>
+          <%= f.file_field :avatar, multipart: true, class: "relative block w-full appearance-none rounded-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-violet
+            -500 focus:outline-none focus:ring-violet-500 sm:text-sm
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-violet-100 file:text-violet-700
+            hover:file:bg-violet-200" %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Esperando confirmação para o email: <%= resource.unconfirmed_email %></div>
         <% end %>
