@@ -4,32 +4,42 @@
 
   <%= button_to "Criar Anúncio", new_announcement_path, class: "bg-blue-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-full" %>
 
+  <div class="bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500">
+  olá
+  </div>
+
   <div id="announcements" class="min-w-full">
     <% @announcements.each do |announcement| %>
-      <div class="container w-screen mx-auto flex items-center justify-center">
+      <div class="container w-screen mx-auto flex items-center justify-center mr-4">
         <div>
-          <%= link_to announcement do %>
-            <div class="flex flex-col bg-grey-700 shadow-lg shadow-grey-800 py-4 px-6 my-4 rounded-md">
+          <%= link_to "view_announcement/#{announcement.id}" do %>
+            <div class="flex flex-col bg-grey-700 shadow-lg shadow-grey-800 rounded-md
+            py-4 px-6 my-4 h-54 w-96 sm:h-54 sm:w-96">
               <div class="flex flex-row">
                 <div cla>
-                    <% if announcement.images.attached? %>
-                      <%= image_tag announcement.images.first, class: "rounded-t-lg rounded-b-lg w-36" %>
-                    <% end %>
-                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+                  <% if announcement.images.attached? %>
+                    <%= image_tag announcement.images.first, class: "rounded-t-lg rounded-b-lg w-36" %>
+                  <% else %>
+                    <div class="bg-grey-700 shadow-lg shadow-grey-800 rounded-md w-90">
+                      <img src="https://www.freeiconspng.com/uploads/no-image-icon-6.png" class="rounded-t-lg rounded-b-lg w-80" alt="Icon No Download" />
+                    </div>
+                  <% end %>
                 </div>
 
                 <div class="flex flex-row">
-                  <div class="ml-4">
+                  <div class="ml-2">
                       <h5 class="text-2xl font-normal tracking-tight"><%= announcement.title %></h5>
                   </div>
 
-                  <div class="ml-6">
-                      <h5 class="ml-6 text-2xl font-semibold tracking-tight">R$ <%= announcement.value %></h5>
+                  <div class="ml-4">
+                      <h5 class="ml-4 text-2xl font-semibold tracking-tight"><%= number_to_currency(announcement.value,
+                                                                                                       unit: "R$",
+                                                                                                       separator: ",") %></h5>
                   </div>
                 </div>
               </div>
 
-              <div class="text-end text-sm font-light">
+              <div class="text-end text-sm font-light pt-6">
                 <%= time_ago_in_words announcement.created_at %>
               </div>
             </div>

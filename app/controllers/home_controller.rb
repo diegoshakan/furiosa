@@ -3,4 +3,8 @@ class HomeController < ApplicationController
   def index
     @announcements = Announcement.all_announcements
   end
+
+  def show
+    @announcement = Announcement.includes({ images_attachments: :blob }).find(params[:id])
+  end
 end

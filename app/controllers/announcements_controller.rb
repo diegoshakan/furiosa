@@ -54,7 +54,9 @@ class AnnouncementsController < ApplicationController
   private
     def set_announcement
       begin
-        @announcement = Announcement.where(user: current_user).find(params[:id])
+        @announcement = Announcement
+                          .includes({ images_attachments: :blob })
+                          .where(user: current_user).find(params[:id])
       rescue StandardError => e
         respond_to do |format|
           format.html { redirect_to announcements_url, notice: "Você não possui este anúncio." }
