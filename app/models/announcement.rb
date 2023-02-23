@@ -1,4 +1,6 @@
 class Announcement < ApplicationRecord
+  searchkick
+
   before_save :add_code
 
   belongs_to :user
