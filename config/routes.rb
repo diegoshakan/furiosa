@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :announcements
 
-  get 'view_announcement/:id', to: "home#show"
   get 'profile', to: "profile#show"
+  get 'view_announcement/:id', to: "home#show"
+  get 'search', to: "search#search"
 end

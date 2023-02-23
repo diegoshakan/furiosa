@@ -48,3 +48,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "searchkick", "~> 5.2"
+gem 'elasticsearch', '~> 7.17.7'
