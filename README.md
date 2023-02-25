@@ -8,7 +8,7 @@ Click here to visit: [Furiosa](furiosa-production.up.railway.app)
 * $ cd furiosa
 * $ rails db:create db:migrate
 * $ bundle install
-* $ ./bn/dev
+* $ ./bn/dev  
 TailwindCSS is the framework that I choose to this project. So use the command above to see your changes with Tailwind.
 
 ## To Run Elasticsearch locally
@@ -16,9 +16,10 @@ Furiosa use Elasticsearch to index and return a fast search from announcements. 
 the ES, ok!?
 I don't know if when you to run the project in first time, if you will need reindex the model Announcement in your rails console.
 But if to must, run in your rails console: ```Announcement.reindex```.
+
 ```
 $ docker run --name elasticsearch -d -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.8
-``
+```
 
 ## Database creation
 * Criação de Modelos: Toda vez que criar uma tabela adicionar os seguintes campos (deleted_at como datetime e adicioanr um index para esta), pois serve de parâmetro para o soft delete, exemplo:
@@ -46,23 +47,3 @@ class CreateBooks < ActiveRecord::Migration[7.0]
 end
 ```
 Não esquecer de adicionar o helper `acts_as_paranoid` nos models para o funcionamento dos métodos. Maiores informações na documentação [Paranoia](https://github.com/rubysherpas/paranoia).
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
