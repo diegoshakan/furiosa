@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 gem "bootsnap", require: false
 gem 'devise'
+gem 'elasticsearch', '~> 7.17.7'
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "jbuilder"
@@ -12,6 +13,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "redis", "~> 4.0"
+gem "searchkick", "~> 5.2"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
@@ -48,6 +50,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "searchkick", "~> 5.2"
-gem 'elasticsearch', '~> 7.17.7'
