@@ -1,3 +1,28 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" %>
+<% end %>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+      <% @announcement.images.each do |image| %>
+        <div class="swiper-slide"><%= image_tag image %></div>
+      <% end %>
+    </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<!--
 <div>
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
@@ -34,3 +59,4 @@
     <hr class="mt-6">
   <% end %>
 </div>
+-->
