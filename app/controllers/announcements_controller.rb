@@ -2,7 +2,7 @@ class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: %i[ show edit update destroy ]
   # skip_before_action :authenticate_user!
   def index
-    @announcements = current_user.announcements.all_announcements
+    @announcements = current_user.announcements.with_categories
   end
 
   def show
@@ -54,7 +54,9 @@ class AnnouncementsController < ApplicationController
   private
     def set_announcement
       begin
-        @announcement = Announcement.where(user: current_user).find(params[:id])
+        @announcement = Announcement
+                          .includes({ images_attachments: :blob })
+                          .where(user: current_user).find(params[:id])
       rescue StandardError => e
         respond_to do |format|
           format.html { redirect_to announcements_url, notice: "Você não possui este anúncio." }
