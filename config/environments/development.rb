@@ -19,8 +19,6 @@ Rails.application.configure do
 
   config.cache_classes = false
 
-  config.hosts << "furiosa-production.up.railway.app"
-
   # Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 

@@ -1,6 +1,6 @@
 # Furiosa
 
-Click here to visit: [Furiosa](furiosa-production.up.railway.app)
+Click here to visit: [Furiosa](https://fly.io/apps/furiosa)
 
 ## Setup Project
 
