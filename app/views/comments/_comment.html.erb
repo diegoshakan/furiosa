@@ -2,16 +2,10 @@
   <div class="text-sm font-semibold">
     <%= comment.user.full_name || comment.user.email %> comentou:
   </div>
-  <% if current_user == comment.user %>
-    <div>
-      <%= button_to "Apagar", [announcement, comment], class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full", method: :delete %>
-    </div>
-  <% end %>
   <div class="font-normal">
     <%= comment.body %>
   </div>
   <div class="text-sm font-light text-end">
     Postado: <%= time_ago_in_words(comment.created_at) %>
   </div>
-  <hr />
 </div>
