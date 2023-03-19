@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comentário criado!"
       redirect_to "/view_announcement/#{@announcement.id}"
     else
-      flash[:alert] = "Comentário não foi criado!"
+      flash[:alert] = "O comentário precisa ser maior que 3 caracteres e menor que 70 caracteres!"
       redirect_to "/view_announcement/#{@announcement.id}"
     end
   end
