@@ -6,7 +6,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def show
-    @comments = @announcement.comments.order(created_at: :desc)
+    @comments = @announcement.comments.includes([:user]).order(created_at: :desc)
   end
 
   def new

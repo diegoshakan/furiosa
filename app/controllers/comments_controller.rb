@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @announcement.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@announcement)
+    redirect_to "/view_announcement/#{@announcement.id}"
   end
 
   private
