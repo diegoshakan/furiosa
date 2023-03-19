@@ -10,8 +10,13 @@ class Announcement < ApplicationRecord
   scope :all_announcements, -> { includes({ images_attachments: :blob }) }
   scope :with_categories, -> { includes([:category, { images_attachments: :blob }]) }
 
+
   def images_as_thumbnail
     ::Announcements::ImagesAsThumbnails.new({ announcement: self }).execute
+  end
+
+  def all_comments_in_order_desc
+    comments.includes([:user]).order(created_at: :desc)
   end
 
   private
