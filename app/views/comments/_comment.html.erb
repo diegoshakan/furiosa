@@ -1,0 +1,11 @@
+<div class="mb-4">
+  <div class="text-sm font-semibold">
+    <%= comment.user.full_name || comment.user.email %> comentou:
+  </div>
+  <div class="font-normal">
+    <%= comment.body %>
+  </div>
+  <div class="text-sm font-light text-end">
+    Postado: <%= time_ago_in_words(comment.created_at) %>
+  </div>
+</div>

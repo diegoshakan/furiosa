@@ -6,6 +6,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def show
+    @comments = @announcement.all_comments_in_order_desc
   end
 
   def new
