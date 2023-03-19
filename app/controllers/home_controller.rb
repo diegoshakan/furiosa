@@ -6,5 +6,6 @@ class HomeController < ApplicationController
 
   def show
     @announcement = Announcement.includes({ images_attachments: :blob }).find(params[:id])
+    @comments = @announcement.comments.order(created_at: :desc)
   end
 end

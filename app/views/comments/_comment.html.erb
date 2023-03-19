@@ -1,0 +1,11 @@
+<div class="comment-<%= comment.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
+  <%= comment.user.email %>
+  <span>Postado: <%= time_ago_in_words(comment.created_at) %></span>
+  <% if current_user == comment.user %>
+    <div>
+      <%= button_to "Apagar", [announcement, comment], class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full", method: :delete %>
+    </div>
+  <% end %>
+  <hr />
+  <%= comment.body %>
+</div>

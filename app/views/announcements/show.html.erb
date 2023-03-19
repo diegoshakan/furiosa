@@ -15,5 +15,7 @@
 </div>
 
 <div>
-  <%= render "comments/form", announcement: @announcement %>
+  <% @comments.each do |comment| %>
+    <%= render "comments/comment", announcement: @announcement, comment: comment %>
+  <% end %>
 </div>
