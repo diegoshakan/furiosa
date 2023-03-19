@@ -1,0 +1,8 @@
+<%= form_with(model: [announcement, announcement.comments.build]) do |f| %>
+
+  <div class="form-control">
+    <%= f.text_area :body %>
+    <%= f.submit "Criar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+  </div>
+
+<% end %>

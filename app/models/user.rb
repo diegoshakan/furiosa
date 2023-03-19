@@ -7,6 +7,7 @@ class User < ApplicationRecord
   enum gender: { male: "male", female: "female", not_defined: "not_defined" }
 
   has_many :announcements, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :avatar, dependent: :destroy
 
   validates :first_name, :last_name, :nickname, presence: true
