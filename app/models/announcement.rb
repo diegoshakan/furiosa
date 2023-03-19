@@ -2,7 +2,7 @@ class Announcement < ApplicationRecord
   before_save :add_code
 
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true # por enquanto opcional para testar em produção
 
   has_many :comments, dependent: :destroy
   has_many_attached :images, dependent: :destroy
