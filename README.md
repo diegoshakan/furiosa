@@ -8,7 +8,7 @@ Click here to visit: [Furiosa](https://fly.io/apps/furiosa)
 * $ cd furiosa
 * $ rails db:create db:migrate
 * $ bundle install
-* $ ./bn/dev  
+* $ ./bin/dev  
 TailwindCSS is the framework that I choose to this project. So use the command above to see your changes with Tailwind.
 
 ## To Run Elasticsearch locally
