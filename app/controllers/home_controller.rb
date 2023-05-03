@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @announcements = Announcement.all_announcements
+    @q = Announcement.all_announcements.ransack(params[:q])
+    @announcements = @q.result(distinct: true)
+    # @announcements = Announcement.all_announcements
   end
 
   def show

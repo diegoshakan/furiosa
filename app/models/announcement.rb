@@ -19,6 +19,14 @@ class Announcement < ApplicationRecord
     comments.includes([:user]).order(created_at: :desc)
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    ["category"]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "description"]
+  end
+
   private
 
   def add_code

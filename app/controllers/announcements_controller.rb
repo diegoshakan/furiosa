@@ -2,9 +2,7 @@ class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: %i[ show edit update destroy ]
   # skip_before_action :authenticate_user!
   def index
-    @q = Announcement.with_categories.ransack(params[:q])
-    @announcements = @q.result(distinct: true)
-    # @announcements = current_user.announcements.with_categories
+    @announcements = current_user.announcements.with_categories
   end
 
   def show

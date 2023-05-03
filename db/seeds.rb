@@ -8,9 +8,14 @@
 
 user1 = User.create(first_name: "Diego", last_name: "Araujo", email: "diego@example.com", password: "changeme",
             nickname: "Dieguinho", gender: "male", phone: "84999991111")
+Address.create(state: "Rio Grande do Norte", city: "Parnamirim", user: user1)
 
 user2 = User.create(first_name: "Gandalf", last_name: "Cinzento", email: "user@example.com", password: "changeme",
             nickname: "Mithrandir", gender: "male", phone: "84999991111")
+Address.create(state: "Paraná", city: "Curitiba", user: user2)
+
+User.create(first_name: "Mad", last_name: "Max", email: "max@example.com", password: "changeme",
+                    nickname: "Mad Max", gender: "male", phone: "84999992222")
 
 category_happy_party = Category.create(name: "Festa de Aniversário")
 Subcategory.create(name: "Criança", category: category_happy_party)
