@@ -1,0 +1,56 @@
+<%= form_with(model: address, class: "contents") do |form| %>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <% if address.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+        <ul>
+          <% address.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :street, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :street, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :number, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :number, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :complement, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :complement, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :neighborhood, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :neighborhood, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :zip_code, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :zip_code, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :city, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :city,  required: true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= form.label :state, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.text_field :state, required: true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
+    </div>
+  </div>
+
+  <div class="inline">
+    <%= form.submit "Salvar Endereço", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

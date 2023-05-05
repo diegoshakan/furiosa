@@ -10,7 +10,13 @@ class AnnouncementsController < ApplicationController
   end
 
   def new
-    @announcement = Announcement.new
+    verify_address = ::Announcements::VerifyAddress.call(current_user)
+
+    if verify_address
+      redirect_to new_address_url
+    else
+      @announcement = Announcement.new
+    end
   end
 
   def edit

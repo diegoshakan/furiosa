@@ -36,4 +36,5 @@
 .idea
 config/database.yml
 .env
-/coverage/
+coverage/
+/.byebug_history
