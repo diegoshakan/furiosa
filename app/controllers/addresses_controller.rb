@@ -22,10 +22,11 @@ class AddressesController < ApplicationController
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
+    @address.user = current_user
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to address_url(@address), notice: "Address was successfully created." }
+        format.html { redirect_to new_announcement_url, notice: "Address was successfully created." }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +66,6 @@ class AddressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def address_params
-      params.fetch(:address, {})
+      params.require(:address).permit(:city, :complement, :neighborhood, :number, :state, :street, :zip_code)
     end
 end
