@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  models:
+    address:
+      street: "Rua"
+      number: "Número"
+      complement: 'Complemento'
+      neighborhood: "Bairro"
+      zip_code: "CEP"
+      city: "Cidade"
+      state: "Estado"
+      add_your_address: "Adicione seu endereço:"
+      edit_your_address: "Edite seu endereço:"
+      created_success: "Endereço adicionado com sucesso!"
+      updated_success: "Endereço atualizado com sucesso!"
+      deleted_success: "Endereço apagado com sucesso!"
+      errors:
+        not_allow_create_address: "não permitiu que este endereço fosse salvo"

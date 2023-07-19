@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :addresses
   root "home#index"
   devise_for :users
 
+  resources :addresses, except: [:index, :show, :destroy]
   resources :announcements do
     resources :comments
   end
