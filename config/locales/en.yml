@@ -47,3 +47,17 @@ en:
       deleted_success: "Endereço apagado com sucesso!"
       errors:
         not_allow_create_address: "não permitiu que este endereço fosse salvo"
+    announcement:
+      title: "Título"
+      description: "Descrição"
+      value: "Valor"
+      category: "Categoria"
+      subcategory: "subcategoria"
+      images: "Imagens"
+      add_your_announcement: "Adicione seu anúncio:"
+      edit_your_announcement: "Edite seu anúncio:"
+      created_success: "Anúncio adicionado com sucesso!"
+      updated_success: "Anúncio atualizado com sucesso!"
+      deleted_success: "Anúncio apagado com sucesso!"
+      errors:
+        not_allow_create_address: "não permitiu que este anúncio fosse salvo"

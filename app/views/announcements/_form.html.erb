@@ -2,7 +2,7 @@
   <div class="flex flex-wrap -mx-3 mb-6">
     <% if announcement.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(announcement.errors.count, "error") %> prohibited this announcement from being saved:</h2>
+        <h2><%= pluralize(announcement.errors.count, "error") %> <%= I18n.t("models.announcement.errors.not_allow_create_address") %>:</h2>
 
         <ul>
           <% announcement.errors.each do |error| %>
@@ -13,28 +13,28 @@
     <% end %>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <%= form.label :title, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.label I18n.t("models.announcement.title"), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
       <%= form.text_field :title, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <%= form.label :description, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.label I18n.t("models.announcement.description"), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
       <%= form.text_area :description, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <%= form.label :value, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.label I18n.t("models.announcement.value"), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
       <%= form.text_field :value, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <%= form.label :category, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.label I18n.t("models.announcement.category"), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
       <%= form.select :category_id, options_for_select(Category.all.pluck(:name, :id)), include_blank: true,
                      class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
     </div>
 
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <%= form.label :images, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= form.label I18n.t("models.announcement.images"), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
       <%= form.file_field :images, multiple: true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:z-10 focus:border-violet-500 focus:outline-none focus:ring-violet-500 sm:text-sm" %>
     </div>
 

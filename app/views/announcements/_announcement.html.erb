@@ -1,26 +1,26 @@
 <div id="<%= dom_id announcement %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
+    <strong class="block font-medium mb-1"><%= I18n.t("models.announcement.title") %>:</strong>
     <%= announcement.title %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
+    <strong class="block font-medium mb-1"><%= I18n.t("models.announcement.description") %>:</strong>
     <%= announcement.description %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Value:</strong>
+    <strong class="block font-medium mb-1"><%= I18n.t("models.announcement.value") %>:</strong>
     <%= announcement.value %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Category:</strong>
+    <strong class="block font-medium mb-1"><%= I18n.t("models.announcement.category") %>:</strong>
     <%= announcement.category.name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Category:</strong>
+    <strong class="block font-medium mb-1"><%= I18n.t("models.announcement.images") %>:</strong>
     <% announcement.images_as_thumbnail.each do |image| %>
       <span>
         <%= image_tag(image) %>
@@ -29,8 +29,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this announcement", announcement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this announcement', edit_announcement_path(announcement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Ver este anúncio", announcement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Editar este anúncio', edit_announcement_path(announcement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
