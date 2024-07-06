@@ -18,6 +18,7 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
+  gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'ffaker'
