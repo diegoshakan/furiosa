@@ -13,6 +13,7 @@ gem "puma", ">= 5.0"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
+gem "tailwindcss-rails", "~> 2.6"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -33,5 +34,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "tailwindcss-rails", "~> 2.6"
