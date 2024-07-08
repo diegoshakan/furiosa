@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_220313) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_categories_on_deleted_at"
-    t.index ["name"], name: "index_categories_on_name"
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "subcategories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_220313) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_subcategories_on_category_id"
     t.index ["deleted_at"], name: "index_subcategories_on_deleted_at"
-    t.index ["name"], name: "index_subcategories_on_name"
+    t.index ["name"], name: "index_subcategories_on_name", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_220313) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cpf_cnpj"], name: "index_users_on_cpf_cnpj", unique: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
