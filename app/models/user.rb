@@ -6,5 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, :cpf_cnpj, :cellphone, presence: true
+  validates :email, :first_name, :last_name, :cpf_cnpj, :cellphone, presence: true
+  validates :email, :cpf_cnpj, uniqueness: true
 end
