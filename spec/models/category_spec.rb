@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    subject { FactoryBot.build(:category) }
+    
+    it { should validate_presence_of(:name) }
+
+    it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
+  end
+
+  describe 'associations' do
+    it { should have_many(:subcategories) }
+  end
 end
