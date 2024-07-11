@@ -1,0 +1,5 @@
+pt-BR:
+  activemodel:
+    user:
+      errors:
+        just_allow_numbers: "only allows numbers"
