@@ -6,5 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, :cpf_cnpj, :cellphone, presence: true
+  validates :email, :first_name, :last_name, :cpf_cnpj, :cellphone, presence: true
+  validates :email, :cpf_cnpj, uniqueness: true
+
+  validates :first_name, :last_name, :nickname, length: { minimum: 3, maximum: 250 }
+  validates :cpf_cnpj, :cellphone, format: { with: /\A\d+\Z/, message: I18n.t("activemodel.user.errors.just_allow_numbers") }
 end
