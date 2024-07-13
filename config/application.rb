@@ -25,7 +25,8 @@ module Furiosa
     # config.eager_load_paths << Rails.root.join("extras")
     
     # I18n configurations
-    config.i18n.default_locale = :'pt-BR'
+    config.i18n.available_locales = [:"pt-BR", :en]
+    config.i18n.fallbacks = { :"pt-BR" => :en }
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
