@@ -3,7 +3,8 @@ FactoryBot.define do
     email { FFaker::Internet.email }
     first_name { FFaker::NameBR.first_name }
     last_name { FFaker::NameBR.last_name }
-    cellphone { FFaker::PhoneNumberBR.phone_number }
+    nickname { ["nickname", "namenick"].sample }
+    cellphone { FFaker::PhoneNumberBR.mobile_phone_number.gsub(" ", "").gsub("-", "") }
     cpf_cnpj { FFaker::IdentificationBR.cpf }
     password { "changeme" }
   end
