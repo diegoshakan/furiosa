@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'associations' do
+    it { should have_many(:announcements) }
+  end
+
   describe "validations" do
     subject { FactoryBot.build(:user) }
     
