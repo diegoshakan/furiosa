@@ -41,4 +41,4 @@ end
 Don't forget to add the `acts_as_paranoid` helper to the models for the methods to work. Further information in the documentation [Paranoia](https://github.com/rubysherpas/paranoia).
 
 ## Rubocop
-* After finish a commit, for example, please run `rubocop -a` to adjustment your code to keep a pattern of sintax.
+* After finish a commit, for example, please run `rubocop -a` to adjustment your code to keep a pattern of sintax. Further information in the documentation [Rubocop](https://github.com/rails/rubocop-rails-omakase).
