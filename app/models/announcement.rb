@@ -1,7 +1,7 @@
 class Announcement < ApplicationRecord
   include Announcements::Helpers
 
-  before_create :create_code
+  before_create :create_code # in Announcements::Helpers
 
   belongs_to :user
   belongs_to :category

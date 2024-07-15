@@ -4,7 +4,7 @@ ruby "3.2.2"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
-gem 'devise'
+gem "devise"
 gem "importmap-rails"
 gem "jbuilder"
 gem "paranoia"
@@ -18,12 +18,13 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
-  gem 'byebug'
-  gem 'dotenv-rails'
-  gem 'factory_bot_rails'
-  gem 'ffaker'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem "byebug"
+  gem "dotenv-rails"
+  gem "factory_bot_rails"
+  gem "ffaker"
+  gem "rspec-rails"
+  gem "rubocop-rails-omakase", require: false
+  gem "shoulda-matchers"
   gem "debug", platforms: %i[ mri windows ]
 end
 

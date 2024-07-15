@@ -16,7 +16,7 @@ RSpec.describe "/announcements", type: :request do
   before :each do
     sign_in user
   end
-  
+
   let(:user) { create(:user) }
   let(:category) { create(:category) }
   let(:valid_attributes) {
@@ -79,12 +79,11 @@ RSpec.describe "/announcements", type: :request do
         }.to change(Announcement, :count).by(0)
       end
 
-    
+
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post announcements_url, params: { announcement: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
@@ -110,13 +109,11 @@ RSpec.describe "/announcements", type: :request do
     end
 
     context "with invalid parameters" do
-    
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         announcement = Announcement.create! valid_attributes
         patch announcement_url(announcement), params: { announcement: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
