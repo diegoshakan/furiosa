@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "pages#home"
   devise_for :users
 
-  resources :announcements
+  resources :announcements do
+    resources :comments, only: [ :create, :update, :destroy ]
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
