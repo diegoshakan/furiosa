@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_announcement, only: %i[ create destroy ]
+  before_action :set_announcement, only: %i[ create update destroy ]
   before_action :set_comment, only: %i[ update destroy ]
 
   def create
