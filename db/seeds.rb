@@ -9,11 +9,11 @@
 #   end
 
 # Criação Usuários
-puts "Criação Usuários" 
+puts "Criação Usuários"
 user1 = User.create(
-                    email: "user1@example.com", 
-                    first_name: "User", 
-                    last_name: "First", 
+                    email: "user1@example.com",
+                    first_name: "User",
+                    last_name: "First",
                     nickname: "user1",
                     cpf_cnpj: "69169884013",
                     cellphone: "84991000000",
@@ -21,9 +21,9 @@ user1 = User.create(
                     )
 
 user2 = User.create(
-                    email: "user2@example.com", 
-                    first_name: "User", 
-                    last_name: "Second", 
+                    email: "user2@example.com",
+                    first_name: "User",
+                    last_name: "Second",
                     nickname: "user2",
                     cpf_cnpj: "94215719089",
                     cellphone: "84991001111",

@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_220313) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_13_141513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "announcements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "code"
+    t.decimal "value", null: false
+    t.uuid "user_id", null: false
+    t.uuid "category_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_announcements_on_category_id"
+    t.index ["deleted_at"], name: "index_announcements_on_deleted_at"
+    t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -56,5 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_220313) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "announcements", "categories"
+  add_foreign_key "announcements", "users"
   add_foreign_key "subcategories", "categories"
 end

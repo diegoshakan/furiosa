@@ -6,7 +6,7 @@ Click here to visit: [Furiosa](https://fly.io/apps/furiosa) (for now off)
 
 * $ git clone https://github.com/diegoshakan/furiosa.git
 * $ cd furiosa
-* $ rails db:create db:migrate
+* $ rails db:create db:migrate db:seed
 * $ bundle install
 * $ ./bn/dev  
 TailwindCSS is the framework that I choose to this project. So use the command above to see your changes with Tailwind.
@@ -39,3 +39,6 @@ end
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 Don't forget to add the `acts_as_paranoid` helper to the models for the methods to work. Further information in the documentation [Paranoia](https://github.com/rubysherpas/paranoia).
+
+## Rubocop
+* After finish a commit, for example, please run `rubocop -a` to adjustment your code to keep a pattern of sintax. Further information in the documentation [Rubocop](https://github.com/rails/rubocop-rails-omakase).

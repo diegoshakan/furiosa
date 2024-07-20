@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    name { FFaker::Game.category }
+    name { FFaker::Internet.domain_word }
   end
 end
