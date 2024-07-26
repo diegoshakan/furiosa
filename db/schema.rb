@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_13_141513) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_15_140454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -38,6 +38,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_141513) do
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_categories_on_deleted_at"
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "content", null: false
+    t.uuid "user_id", null: false
+    t.uuid "announcement_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_comments_on_announcement_id"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "subcategories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -73,5 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_141513) do
 
   add_foreign_key "announcements", "categories"
   add_foreign_key "announcements", "users"
+  add_foreign_key "comments", "announcements"
+  add_foreign_key "comments", "users"
   add_foreign_key "subcategories", "categories"
 end

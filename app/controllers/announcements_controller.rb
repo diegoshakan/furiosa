@@ -7,6 +7,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def show
+    @comments = @announcement.comments.includes(:user)
   end
 
   def new

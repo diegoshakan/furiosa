@@ -1,0 +1,18 @@
+<div id="<%= dom_id comment %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= comment.content %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= comment&.user&.email %>
+  </p>
+  <%= button_to "Apagar", announcement_comment_path(comment.announcement, comment), 
+      method: :delete,
+      form: { 
+        data: { 
+          turbo_confirm: 'Tem certeza que deseja apagar este comentário?' # TODO: Não está funcionando.
+          } 
+      } 
+  %>
+</div>
