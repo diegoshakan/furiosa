@@ -9,6 +9,6 @@ class Announcement < ApplicationRecord
   has_many :comments
 
   validates :title, :description, :value, presence: true
-  validates :title, length: { minimum: 2, maximum: 75 }
-  validates :description, length: { minimum: 3, maximum: 250 }
+  validates :title, length: { in: 2..75 }
+  validates :description, length: { in: 3..250 }
 end
