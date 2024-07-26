@@ -13,16 +13,13 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:cpf_cnpj) }
     it { should validate_presence_of(:cellphone) }
-    it { should validate_length_of(:first_name).is_at_least(3).on(:create) }
-    it { should validate_length_of(:first_name).is_at_most(250).on(:create) }
+    it { should validate_length_of(:first_name).is_at_least(3).is_at_most(250) }
     it { should_not validate_length_of(:first_name).is_at_least(2).on(:create).with_message("too short") }
     it { should_not validate_length_of(:first_name).is_at_most(251).on(:create).with_message("too long") }
-    it { should validate_length_of(:last_name).is_at_least(3).on(:create) }
-    it { should validate_length_of(:last_name).is_at_most(250).on(:create) }
+    it { should validate_length_of(:last_name).is_at_least(3).is_at_most(250) }
     it { should_not validate_length_of(:last_name).is_at_least(2).on(:create).with_message("too short") }
     it { should_not validate_length_of(:last_name).is_at_most(251).on(:create).with_message("too long") }
-    it { should validate_length_of(:nickname).is_at_least(3).on(:create) }
-    it { should validate_length_of(:nickname).is_at_most(250).on(:create) }
+    it { should validate_length_of(:nickname).is_at_least(3).is_at_most(250) }
     it { should_not validate_length_of(:nickname).is_at_least(2).on(:create).with_message("too short") }
     it { should_not validate_length_of(:nickname).is_at_most(251).on(:create).with_message("too long") }
 
