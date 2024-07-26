@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "pages#home"
+  get "announcement/:id" => "pages#show"
   devise_for :users
 
   resources :announcements do

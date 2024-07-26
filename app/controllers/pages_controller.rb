@@ -1,3 +1,9 @@
 class PagesController < ApplicationController
-  def home; end
+  def home
+    @announcements = Announcement.all
+  end
+
+  def show
+    @announcement = Announcement.find(params[:id])
+  end
 end
