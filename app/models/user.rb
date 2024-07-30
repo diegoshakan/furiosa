@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :announcements, dependent: :destroy
+  has_one :address, dependent: :destroy
+
+  accepts_nested_attributes_for :address
 
   validates :email, :first_name, :last_name, :cpf_cnpj, :cellphone, presence: true
   validates :email, :cpf_cnpj, uniqueness: true

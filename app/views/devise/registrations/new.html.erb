@@ -51,4 +51,41 @@
   </div>
 <% end %>
 
+<!-- Adicione os campos de endereço -->
+<%= f.fields_for :address do |address_form| %>
+  <div class="field">
+    <%= address_form.label :cep %><br />
+    <%= address_form.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= address_form.label :rua %><br />
+    <%= address_form.text_field :rua %>
+  </div>
+  <div class="field">
+    <%= address_form.label :numero %><br />
+    <%= address_form.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= address_form.label :complemento %><br />
+    <%= address_form.text_field :complemento %>
+  </div>
+  <div class="field">
+    <%= address_form.label :ponto_de_referencia %><br />
+    <%= address_form.text_field :ponto_de_referencia %>
+  </div>
+  <div class="field">
+    <%= address_form.label :uf %><br />
+    <%= address_form.text_field :uf %>
+  </div>
+  <div class="field">
+    <%= address_form.label :cidade %><br />
+    <%= address_form.text_field :cidade %>
+  </div>
+<% end %>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
+<% end %>
+
 <%= render "devise/shared/links" %>
