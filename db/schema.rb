@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_15_140454) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_22_072425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "city", null: false
+    t.string "complement"
+    t.string "neighborhood", null: false
+    t.string "number"
+    t.string "reference_point"
+    t.string "state", null: false
+    t.string "street", null: false
+    t.string "zip_code", null: false
+    t.uuid "user_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "announcements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
@@ -83,6 +100,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_140454) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "announcements", "categories"
   add_foreign_key "announcements", "users"
   add_foreign_key "comments", "announcements"

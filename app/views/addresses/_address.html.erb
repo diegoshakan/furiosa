@@ -1,0 +1,41 @@
+<div id="<%= dom_id address %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.zip_code") %>:</strong>
+    <%= address.zip_code %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.street") %>:</strong>
+    <%= address.street %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.number") %>:</strong>
+    <%= address.number %>
+  </p>
+
+  <% if address.complement.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.complement") %>:</strong>
+      <%= address.complement %>
+    </p>
+  <% end %>
+
+  <% if address.reference_point.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.reference_point") %>:</strong>
+      <%= address.reference_point %>
+    </p>
+  <% end %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.state") %>:</strong>
+    <%= address.state %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1"><%= I18n.t("activemodel.address.attributes.city") %>:</strong>
+    <%= address.city %>
+  </p>
+
+</div>

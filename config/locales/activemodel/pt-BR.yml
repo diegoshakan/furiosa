@@ -1,5 +1,13 @@
 pt-BR:
   activemodel:
-    user:
+    address:
+      attributes:
+        city: "Cidade"
+        street: "Rua"
+        number: "Número"
+        complement: "Complemento"
+        reference_point: "Ponto de Referência"
+        state: "Estado"
+        zip_code: "CEP"
       errors:
-        just_allow_numbers: "only allows numbers"
+        just_allow_numbers: "somente números"
