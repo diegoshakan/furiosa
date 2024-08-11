@@ -55,7 +55,7 @@ RSpec.describe "/addresses", type: :request do
 
       it "redirects to the created address" do
         post addresses_url, params: { address: valid_attributes }
-        expect(response).to redirect_to(address_url(Address.last))
+        expect(response).to redirect_to(new_announcement_url)
       end
     end
 

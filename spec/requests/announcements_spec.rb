@@ -44,7 +44,16 @@ RSpec.describe "/announcements", type: :request do
   end
 
   describe "GET /new" do
-    it "renders a successful response" do
+    it "renders a successful response to address if user do not had address" do
+      unless user.address.present?
+        get new_address_url
+        expect(response).to be_successful
+      end
+    end
+
+    it "renders a successful response  to announcement if user had address" do
+      create(:address, zip_code: "59144850", user: user)
+
       get new_announcement_url
       expect(response).to be_successful
     end
