@@ -21,7 +21,7 @@ class AddressesController < ApplicationController
     @address.user = current_user
 
     if @address.save
-      redirect_to address_url(@address), notice: "Address was successfully created."
+      redirect_to new_announcement_path, notice: "Address was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

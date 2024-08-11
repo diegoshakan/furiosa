@@ -11,6 +11,8 @@ class AnnouncementsController < ApplicationController
   end
 
   def new
+    redirect_to new_address_path unless current_user.address.present?
+
     @announcement = Announcement.new
   end
 
