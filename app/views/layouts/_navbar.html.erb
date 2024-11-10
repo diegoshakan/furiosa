@@ -1,0 +1,43 @@
+<header class="bg-white">
+  <nav class="flex justify-between items-center w-[92%]  mx-auto">
+    <div>
+      <%= image_tag('letter-f.png', alt: 'Description of the image', class: "w-16 cursor-pointer") %>
+    </div>
+    <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+      <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+        <li>
+          <%= link_to "Meus Anúncios", announcements_path, class:"hover:text-gray-500" %>
+        </li>
+        <li>
+          <a class="hover:text-gray-500" href="#">Solution</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-500" href="#">Resource</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-500" href="#">Developers</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-500" href="#">Pricing</a>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]" %>
+          <% else %>
+            <%= button_to "Sign in", user_session_path, class: "bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="flex items-center gap-6">
+      <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+    </div>
+  </nav>
+</header>
+<script>
+  const navLinks = document.querySelector('.nav-links')
+  function onToggleMenu(e){
+      e.name = e.name === 'menu' ? 'close' : 'menu'
+      navLinks.classList.toggle('top-[9%]')
+  }
+</script>
