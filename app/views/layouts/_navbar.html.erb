@@ -1,18 +1,18 @@
 <header class="bg-white">
   <nav class="flex justify-between items-center w-[92%]  mx-auto">
     <div>
-      <%= image_tag('letter-f.png', alt: 'Description of the image', class: "w-16 cursor-pointer") %>
+      <%= link_to image_tag('letter-f.png', alt: 'temporaly logo', class: "w-16 cursor-pointer"), root_path %>
     </div>
     <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
       <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
         <li>
+          <%= link_to "Anúncios", root_path, class:"hover:text-gray-500" %>
+        </li>
+        <li>
           <%= link_to "Meus Anúncios", announcements_path, class:"hover:text-gray-500" %>
         </li>
         <li>
-          <a class="hover:text-gray-500" href="#">Solution</a>
-        </li>
-        <li>
-          <a class="hover:text-gray-500" href="#">Resource</a>
+          <%= link_to "Anuncie", new_announcement_path, class:"hover:text-gray-500" %>
         </li>
         <li>
           <a class="hover:text-gray-500" href="#">Developers</a>
