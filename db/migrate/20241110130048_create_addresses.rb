@@ -10,6 +10,7 @@ class CreateAddresses < ActiveRecord::Migration[8.0]
       t.string :zipcode
       t.string :reference_point
 
+      t.datetime :deleted_at, index: true
       t.timestamps
     end
   end

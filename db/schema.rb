@@ -20,8 +20,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
     t.string "number"
     t.string "zipcode"
     t.string "reference_point"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -31,8 +33,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
     t.string "code"
     t.decimal "value"
     t.integer "user_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_announcements_on_deleted_at"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
@@ -42,8 +46,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

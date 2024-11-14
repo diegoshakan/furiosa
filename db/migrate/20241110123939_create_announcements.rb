@@ -7,6 +7,7 @@ class CreateAnnouncements < ActiveRecord::Migration[8.0]
       t.decimal :value
       t.references :user, null: false, foreign_key: true
 
+      t.datetime :deleted_at, index: true
       t.timestamps
     end
   end
