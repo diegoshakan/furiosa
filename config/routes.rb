@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :subcategories
+  resources :categories
   root "pages#home"
-  
+
   devise_for :users
 
   get "pages/show/:id", to: "pages#show", as: "pages_show"
