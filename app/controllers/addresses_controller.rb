@@ -1,10 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: %i[ show edit update destroy ]
-
-  # GET /addresses or /addresses.json
-  def index
-    @address = current_user.address
-  end
+  before_action :set_address, only: %i[ show edit update ]
 
   # GET /addresses/1 or /addresses/1.json
   def show
@@ -44,16 +39,6 @@ class AddressesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /addresses/1 or /addresses/1.json
-  def destroy
-    @address.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to addresses_path, status: :see_other, notice: "Address was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
