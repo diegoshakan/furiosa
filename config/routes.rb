@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :subcategories
-  resources :categories
   root "pages#home"
 
   devise_for :users
@@ -8,8 +6,12 @@ Rails.application.routes.draw do
   get "pages/show/:id", to: "pages#show", as: "pages_show"
   get "profile/show"
 
-  resources :addresses, except: [:index, :destroy]
+  resources :addresses, except: [ :index, :destroy ]
   resources :announcements
+
+  # resources :categories #TODO: Recurso para criar quando tiver tela admin
+  # resources :subcategories #TODO: Recurso para criar quando tiver tela admin
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

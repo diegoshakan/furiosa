@@ -66,6 +66,6 @@ class AnnouncementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def announcement_params
-      params.expect(announcement: [ :title, :description, :code, :value ])
+      params.expect(announcement: [ :title, :description, :code, :value, :category_id ])
     end
 end

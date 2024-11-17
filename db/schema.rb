@@ -44,16 +44,20 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_categories_on_deleted_at"
   end
 
   create_table "subcategories", force: :cascade do |t|
     t.string "title"
     t.integer "category_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_subcategories_on_category_id"
+    t.index ["deleted_at"], name: "index_subcategories_on_deleted_at"
   end
 
   create_table "users", force: :cascade do |t|
