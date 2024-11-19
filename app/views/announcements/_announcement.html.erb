@@ -19,4 +19,8 @@
     <strong class="block font-medium mb-1">User:</strong>
     <%= announcement.user.email %>
   </p>
+  <strong>Postado:</strong>
+  <%= time_tag announcement.updated_at, "data-local": "time", "data-format": "%B %e, %Y %l:%M%P" %>
+  <p>
+  </p>
 </div>
