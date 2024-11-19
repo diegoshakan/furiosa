@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get "profile/show"
 
   resources :addresses, except: [ :index, :destroy ]
-  resources :announcements
+  resources :announcements do
+    resources :comments
+  end
 
   # resources :categories #TODO: Recurso para criar quando tiver tela admin
   # resources :subcategories #TODO: Recurso para criar quando tiver tela admin

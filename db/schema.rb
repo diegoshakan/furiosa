@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_18_231912) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "state"
@@ -50,6 +50,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
     t.index ["deleted_at"], name: "index_categories_on_deleted_at"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "announcement_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_comments_on_announcement_id"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+  end
+
   create_table "subcategories", force: :cascade do |t|
     t.string "title"
     t.integer "category_id", null: false
@@ -77,5 +87,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_130048) do
   add_foreign_key "addresses", "users"
   add_foreign_key "announcements", "categories"
   add_foreign_key "announcements", "users"
+  add_foreign_key "comments", "announcements"
   add_foreign_key "subcategories", "categories"
 end
