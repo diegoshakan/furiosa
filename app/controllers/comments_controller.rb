@@ -6,6 +6,11 @@ class CommentsController < ApplicationController
     redirect_to pages_show_path(@announcement)
   end
 
+  def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to pages_show_path(@announcement)
+  end
+
   private
 
     def set_announcement
