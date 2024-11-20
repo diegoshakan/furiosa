@@ -43,6 +43,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem "byebug"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -69,3 +70,7 @@ gem "devise", "~> 4.9"
 gem "devise-tailwinded", "~> 0.1.5"
 
 gem "paranoia", "~> 3.0"
+
+gem "image_processing", "~> 1.13"
+
+gem "mini_magick", "~> 4.13"

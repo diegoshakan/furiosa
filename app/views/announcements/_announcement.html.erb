@@ -19,8 +19,14 @@
     <strong class="block font-medium mb-1">User:</strong>
     <%= announcement.user.email %>
   </p>
+
+  <% announcement.images.each do |image| %>
+      <span>
+        <%= link_to image_tag(image.variant(resize_to_limit: [300, nil])), image %>
+      </span>
+    <% end %>
   <strong>Postado:</strong>
-  <%= time_tag announcement.updated_at, "data-local": "time", "data-format": "%B %e, %Y %l:%M%P" %>
   <p>
+    <%= time_tag announcement.updated_at, "data-local": "time", "data-format": "%B %e, %Y %l:%M%P" %>
   </p>
 </div>

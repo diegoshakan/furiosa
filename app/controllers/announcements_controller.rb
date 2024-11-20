@@ -37,6 +37,9 @@ class AnnouncementsController < ApplicationController
 
   # PATCH/PUT /announcements/1 or /announcements/1.json
   def update
+    byebug
+    @announcement.images.attach(params[:announcement][:images]) if params[:announcement][:images]
+
     respond_to do |format|
       if @announcement.update(announcement_params)
         format.html { redirect_to @announcement, notice: "Announcement was successfully updated." }
@@ -66,6 +69,6 @@ class AnnouncementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def announcement_params
-      params.expect(announcement: [ :title, :description, :code, :value, :category_id ])
+      params.expect(announcement: [ :title, :description, :code, :value, :category_id, images: [] ])
     end
 end
