@@ -7,4 +7,8 @@ RSpec.describe Announcement, type: :model do
     it { should have_many(:comments).dependent(:destroy) }
     it { should have_many_attached(:images) }
   end
+
+  context 'validations' do
+    it { should validate_presence_of(:title) }
+  end
 end

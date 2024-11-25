@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Addresses", type: :request do
-  let(:user) { FactoryBot.create(:user) }
-  let(:address) { FactoryBot.create(:address, user_id: user.id) }
+  let(:user) { create(:user) }
+  let(:address) { create(:address, user: user) }
 
-  let(:valid_attributes) { FactoryBot.attributes_for(:address, user_id: user.id) }
-  let(:invalid_attributes) { FactoryBot.attributes_for(:address, zipcode: nil) }
+  let(:valid_attributes) { attributes_for(:address, user_id: user.id) }
+  let(:invalid_attributes) { attributes_for(:address, zipcode: nil) }
 
   before do
     sign_in user
   end
 
-  describe "GET /show" do
+  describe "GET #show" do
     it "renders a successful response" do
       get address_url(address)
 
@@ -20,14 +20,15 @@ RSpec.describe "Addresses", type: :request do
     end
   end
 
-  describe "GET /new" do
+  describe "GET #new" do
     it "renders a successful response" do
       get new_address_url
+
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
+  describe "GET #edit" do
     it "renders a successful response" do
       get edit_address_url(address)
 
@@ -35,7 +36,7 @@ RSpec.describe "Addresses", type: :request do
     end
   end
 
-  describe "POST /create" do
+  describe "POST #create" do
     context "with valid parameters" do
       it "creates a new Address" do
         expect {
@@ -64,7 +65,7 @@ RSpec.describe "Addresses", type: :request do
     end
   end
 
-  describe "PATCH /update" do
+  describe "PATCH #update" do
     context "with valid parameters" do
       let(:new_attributes) { { street: "Rua dos Testes" } }
 

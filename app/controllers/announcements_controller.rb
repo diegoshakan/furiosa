@@ -37,7 +37,6 @@ class AnnouncementsController < ApplicationController
 
   # PATCH/PUT /announcements/1 or /announcements/1.json
   def update
-    byebug
     @announcement.images.attach(params[:announcement][:images]) if params[:announcement][:images]
 
     respond_to do |format|
