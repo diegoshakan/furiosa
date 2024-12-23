@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Announcements", type: :request do
+RSpec.describe "Comments", type: :request do
   let(:user) { create(:user) }
   let(:category) { create(:category) }
   let(:announcement) { create(:announcement, user: user, category: category) }
