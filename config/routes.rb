@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :addresses, except: [ :index, :destroy ]
   resources :announcements do
-    resources :comments
+    resources :comments, only: [ :create, :destroy ]
   end
 
   # resources :categories #TODO: Recurso para criar quando tiver tela admin
